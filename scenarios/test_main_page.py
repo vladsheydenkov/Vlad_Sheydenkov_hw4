@@ -4,15 +4,15 @@ Module with tests
 
 
 import pytest
-from hiddel_layers_page import HiddenHelper
+from pages.hiddel_layers_page import HiddenHelper
 from selenium.common.exceptions import ElementClickInterceptedException
-from wait_delay_page import WaitHelper
-from ajax_data_page import WaitForAjaxHelper
-from client_side_delay_page import WaitForDelayHelper
-from bad_click_page import BadButtonHelper
-from text_input_page import TextInputHelper
-from scrollbars_page import ScrollbarHelper
-from dynamic_table_page import DynamicTableHelper
+from pages.wait_delay_page import WaitHelper
+from pages.ajax_data_page import WaitForAjaxHelper
+from pages.client_side_delay_page import WaitForDelayHelper
+from pages.bad_click_page import BadButtonHelper
+from pages.text_input_page import TextInputHelper
+from pages.scrollbars_page import ScrollbarHelper
+from pages.dynamic_table_page import DynamicTableHelper
 
 
 def test_impossible_second_click(browser):
