@@ -3,7 +3,7 @@ This module provides functions for working with Hidden Layers scenario
 """
 
 
-from base_page import BasePage
+from scenarios.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 

@@ -5,12 +5,14 @@ This module provides functions for searching web elements
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium import webdriver
 
 
-class BasePage:
+class BasePage():
 
-    def __init__(self, browser, url):
-        self.browser = browser
+    def __init__(self, url):
+        self.browser = webdriver.Firefox(executable_path=GeckoDriverManager().install())
         self.url = url
 
     def find_element(self, locator, time=10):
@@ -23,3 +25,7 @@ class BasePage:
 
     def go_to_site(self):
         return self.browser.get(self.url)
+
+    def quit(self):
+        self.browser.quit()
+

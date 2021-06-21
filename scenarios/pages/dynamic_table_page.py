@@ -3,13 +3,19 @@ This module provides functions for working with Dynamic Table scenario
 """
 
 
-from base_page import BasePage
+from scenarios.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 
 class SearchLocators():
     ROWS = (By.CSS_SELECTOR, '[role="row"]')
     CPU = (By.CLASS_NAME, 'bg-warning')
+
+
+def find_cpu(list_with_elements):
+    for element in list_with_elements[1:]:
+        if '%' in element:
+            return f'Chrome CPU: {element}'
 
 
 class DynamicTableHelper(BasePage):
@@ -19,8 +25,7 @@ class DynamicTableHelper(BasePage):
         for row in rows:
             data_from_row = row.text.split()
             if data_from_row[0] == 'Chrome':
-                chrome_cpu = data_from_row[1]
-                return f'Chrome CPU: {chrome_cpu}'
+                return find_cpu(data_from_row)
 
     def find_answer_cpu(self):
         return self.find_element(SearchLocators.CPU, time=2).text
